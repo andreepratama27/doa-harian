@@ -2,19 +2,11 @@
   import type { PageData } from './$types';
 
   export let data: PageData;
-
-  const searchPrayer = (event: any) => {
-    const filter = data?.data?.filter((item: any) => item.doa.toLowerCase().includes(event.target.value))
-
-    data = {
-      data: filter
-    }
-  }
 </script>
 
 <div class="w-full pb-8 mt-4 border-b-4 border-black search-wrapper">
   <p class="mb-4 font-semibold label">Pencarian</p>
-  <input type="text" name="query" on:change={searchPrayer} placeholder="Cari Doa" class="w-full h-12 p-4 border-2 border-black outline-none">
+  <input type="text" name="query" placeholder="Cari Doa" class="w-full h-12 p-4 border-2 border-black outline-none">
 </div>
 
 <div class="w-full py-8 prayer-lists">
