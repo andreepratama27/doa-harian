@@ -2,20 +2,29 @@
   import type { PageData } from './$types';
 
   export let data: PageData;
+
+  const searchPrayer = (event: any) => {
+    const filter = data?.data?.filter((item: any) => item.doa.toLowerCase().includes(event.target.value))
+
+    data = {
+      data: filter
+    }
+  }
 </script>
 
-<div class="w-full mt-4 search-wrapper">
-  <p class="mb-4 label">Pencarian</p>
-  <input type="text" placeholder="Cari Doa" class="w-full h-12 px-4 border rounded outline">
+<div class="w-full pb-8 mt-4 border-b-4 border-black search-wrapper">
+  <p class="mb-4 font-semibold label">Pencarian</p>
+  <input type="text" name="query" on:change={searchPrayer} placeholder="Cari Doa" class="w-full h-12 p-4 border-2 border-black outline-none">
 </div>
 
 <div class="w-full py-8 prayer-lists">
   {#each data.data as item}
-    <div class="w-full p-4 mb-4 border rounded lists hover:cursor-pointer hover:border-blue-500">
-      <a href={`/doa/${item.id}`}>
-        <p>{item.doa}</p>
-      </a>
-    </div> 
+    <a href={`/doa/${item.id}`} class="flex items-center justify-between w-full p-4 mb-4 border-2 border-black lists hover:cursor-pointer hover:font-bold group">
+      <p>{item.doa}</p>
+      <div class="w-5 opacity-0 group-hover:opacity-100" role="button">
+        <img src='images/right-arrow.png' alt="arrow-right" loading="lazy" class="w-full h-full" />
+      </div>
+    </a> 
   {/each}
   
 </div>

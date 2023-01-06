@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Sudo';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+      /* IE6-IE8 */ url('/static/fonts/Sudo-Regular.woff2') format('woff2'),
+      /* Super Modern Browsers */ url('/static/fonts/Sudo-Regular.woff') format('woff'),
+}
