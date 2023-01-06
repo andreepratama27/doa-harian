@@ -1,10 +1,10 @@
 export const manifest = {
 	appDir: "_app",
 	appPath: "_app",
-	assets: new Set(["favicon.png"]),
-	mimeTypes: {".png":"image/png"},
+	assets: new Set([".DS_Store","favicon.png","fonts/.DS_Store","fonts/sudo/.DS_Store","fonts/sudo/Makefile","fonts/sudo/Sudo-Bold.woff","fonts/sudo/Sudo-Bold.woff2","fonts/sudo/Sudo-BoldItalic.woff","fonts/sudo/Sudo-BoldItalic.woff2","fonts/sudo/Sudo-Italic.woff","fonts/sudo/Sudo-Italic.woff2","fonts/sudo/Sudo-Light.woff","fonts/sudo/Sudo-Light.woff2","fonts/sudo/Sudo-LightItalic.woff","fonts/sudo/Sudo-LightItalic.woff2","fonts/sudo/Sudo-Medium.woff","fonts/sudo/Sudo-Medium.woff2","fonts/sudo/Sudo-MediumItalic.woff","fonts/sudo/Sudo-MediumItalic.woff2","fonts/sudo/Sudo-Regular.woff","fonts/sudo/Sudo-Regular.woff2","fonts/sudo/Sudo-Thin.woff","fonts/sudo/Sudo-Thin.woff2","fonts/sudo/Sudo-ThinItalic.woff","fonts/sudo/Sudo-ThinItalic.woff2","fonts/sudo/SudoVariable.woff2","images/right-arrow.png"]),
+	mimeTypes: {".png":"image/png",".woff":"font/woff",".woff2":"font/woff2"},
 	_: {
-		entry: {"file":"_app/immutable/start-c81868db.js","imports":["_app/immutable/start-c81868db.js","_app/immutable/chunks/index-3a4b075a.js","_app/immutable/chunks/singletons-b467687f.js"],"stylesheets":[],"fonts":[]},
+		entry: {"file":"_app/immutable/start-6f8fe0cd.js","imports":["_app/immutable/start-6f8fe0cd.js","_app/immutable/chunks/index-ffb33f1a.js","_app/immutable/chunks/singletons-75afc285.js"],"stylesheets":[],"fonts":[]},
 		nodes: [
 			() => import('../output/server/nodes/0.js'),
 			() => import('../output/server/nodes/1.js'),
