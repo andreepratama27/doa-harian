@@ -1,4 +1,4 @@
-<section class="flex justify-center mt-8">
+<section class="flex justify-center mt-8 h-screen">
   {#each data.data as item}
   <div class='text-center verse'>
     <p class="pb-4 text-lg title">{item.doa}</p>
@@ -15,6 +15,4 @@
 <script lang='ts'>
   import type { PageData } from './$types';
   export let data: PageData;
-
-  console.log('fff', data)
 </script>
