@@ -1,32 +1,31 @@
 <script lang="ts">
-  import SearchBar from '../components/SearchBar/SearchBar.svelte';
+	import { createSearchStore, searchHandler } from '$lib/stores/searchStore';
+	import { onDestroy } from 'svelte';
   import type { PageData } from './$types';
 
   export let data: PageData;
 
-  let tempData = Object.assign({}, data);
+  const searchStore = createSearchStore(data);
+  const unsubscribe = searchStore.subscribe((item) => {
+    searchHandler(item)
+  })
 
-  function onSearch(event) {
-    const text = event.detail.text
-
-    if (text === '') {
-      data = tempData;
-    } else {
-      const filterData = data?.data.filter(x => x.doa.includes(text))
-      data = {
-        ...data,
-        data: filterData,
-      }
-    }
-  }
+  onDestroy(() => {
+    unsubscribe();
+  })
 </script>
 
 <div class="w-full min-h-screen py-8 prayer-lists bg-sand-500">
-  <SearchBar on:search={onSearch} />
+  <div class="w-full border-black search-wrapper relative">
+    <p class="mb-4 font-semibold label">Pencarian</p>
+    <div class="flex items-center">
+      <input type="search" name="query" placeholder="Cari Doa" class="w-full h-12 p-4 border-2 border-black outline-none" bind:value={$searchStore.search}>
+    </div>
+  </div>
 
   <div class="my-8 bg-black h-1"></div>
 
-  {#each data.data as item}
+  {#each $searchStore.filtered as item}
     <a href={`/doa/${item.id}`} class="flex items-center justify-between w-full p-4 mb-4 border-2 border-black lists hover:cursor-pointer hover:font-bold group bg-white">
       <p>{item.doa}</p>
       <div class="w-5 opacity-0 group-hover:opacity-100" role="button">

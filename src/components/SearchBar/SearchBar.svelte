@@ -2,11 +2,11 @@
 	import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher()
-  export let searchString: string;
+  let searchString: string;
 
   function handleChange(e) {
     dispatch('search', {
-      text: e.target.value
+      text: e.target.value,
     })
   }
 
